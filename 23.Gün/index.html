@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Event Listener</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .output {
+            margin-top: 50px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .key-code {
+            font-size: 48px;
+            color: #007BFF;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Press Any Key</h1>
+    <p>The key code will appear below:</p>
+    <div class="output">
+        Key Code: <span class="key-code">---</span>
+    </div>
+
+    <script>
+        // DOM element to display the key code
+        const keyCodeDisplay = document.querySelector('.key-code');
+
+        // Add an event listener to listen for 'keydown' events
+        document.addEventListener('keypress', (event) => {
+            // Get the key code from the event
+            const keyCode = event.code; // Example: 'KeyA', 'Space', 'Enter'
+
+            // Display the key code in the output
+            keyCodeDisplay.textContent = keyCode;
+        });
+    </script>
+</body>
+
+</html>

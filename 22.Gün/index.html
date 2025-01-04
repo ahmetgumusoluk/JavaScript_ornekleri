@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Numbers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 700px;
+            gap: 10px;
+        }
+
+        .number {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .even {
+            background-color: green;
+        }
+
+        .odd {
+            background-color: yellow;
+            color: black;
+        }
+
+        .prime {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="numberContainer"></div>
+
+    <script>
+        function isPrime(num) {
+            if (num < 2) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        const container = document.getElementById('numberContainer');
+
+        for (let i = 0; i <= 100; i++) {
+            const numberDiv = document.createElement('div');
+            numberDiv.textContent = i;
+            numberDiv.classList.add('number');
+
+            if (isPrime(i)) {
+                numberDiv.classList.add('prime');
+            } else if (i % 2 === 0) {
+                numberDiv.classList.add('even');
+            } else {
+                numberDiv.classList.add('odd');
+            }
+
+            container.appendChild(numberDiv);
+        }
+    </script>
+</body>
+
+</html>
